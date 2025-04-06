@@ -2,38 +2,33 @@
 using namespace std;
 
 
-void BubbleSort(int arr[] , int n)
+void SelectionSort(int arr[] , int n)
 {
+    
     for(int i=0; i<n-1; i++)
     {
-        bool isSort = false;
+        int smallestIndex = i;
 
-        for(int j=0; j<n-i-1; j++)
+        for(int j=i+1; j<n; j++)
         {
-            if(arr[j]>arr[j+1])
+            if(arr[j] < arr[smallestIndex] )
             {
-                //swap(arr[j],arr[j+1]);
-
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp; 
-
-                isSort = true;
+                smallestIndex = j;
             }
         }
 
-        if(isSort == 0)
-        {
-            cout<<"is Alrady Sorted...";
-            return;
-        }
+        swap(arr[i],arr[smallestIndex]);
 
         for(int i=0; i<n; i++)
-    {
-        cout<<arr[i]<<" ";
+        {
+              cout<<arr[i]<<" ";
+        }
+
+        cout<<endl;
     }
-    cout<<endl;
-    }
+
+
+
 
     cout<<"\n--------------------------------\n"<<endl;
 
@@ -41,8 +36,6 @@ void BubbleSort(int arr[] , int n)
     {
         cout<<arr[i]<<" ";
     }
-
-
 
 
 }
@@ -55,14 +48,12 @@ int main()
 {
     //int arr[]={4,1,3,2,5};
 
-    //int arr[]={5,4,3,2,1};
-
-    int arr[]={1,2,3,4,5};
+    int arr[]={5,4,3,2,1};
 
     int n= sizeof(arr)/sizeof(int);
 
     cout<<"\n--------------------------------"<<endl;
-    
+
     for(int i=0; i<n; i++)
     {
         cout<<arr[i]<<" ";
@@ -70,7 +61,8 @@ int main()
 
     cout<<"\n--------------------------------"<<endl;
 
-    BubbleSort(arr,n);
+    SelectionSort(arr,n);
+
     cout<<"\n--------------------------------"<<endl;
 
     return 0;
